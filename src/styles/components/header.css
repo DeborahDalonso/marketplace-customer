@@ -1,0 +1,120 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: var(--header-h);
+}
+
+.brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--text);
+    text-decoration: none;
+    line-height: 1;
+}
+
+.brand__name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.brand__line {
+    margin-top: 2px;
+    color: var(--rope);
+}
+
+.header__nav {
+    display: flex;
+    gap: 18px;
+    margin-left: 8px;
+}
+
+.header__nav a {
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    padding-block: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.header__nav a:hover { color: var(--primary); }
+
+.header__nav a.active { border-bottom-color: var(--accent); }
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.header__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.header__greeting { font-weight: 500; }
+
+.icon-btn,
+.cart-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.icon-btn:hover,
+.cart-btn:hover { background: var(--surface-2); }
+
+.cart-btn { position: relative; }
+
+.cart-btn__count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .header__inner {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        padding-block: 10px;
+    }
+    .header__nav {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        gap: 16px;
+        font-size: 0.95rem;
+    }
+    .header__greeting { display: none; }
+}

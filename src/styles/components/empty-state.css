@@ -1,0 +1,29 @@
+.empty-state {
+    position: relative;
+    max-width: 440px;
+    margin: 32px auto;
+    padding: 40px 24px 28px;
+    text-align: center;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius-l);
+}
+
+.empty-state h3 { margin-bottom: 6px; }
+
+.empty-state p { color: var(--text-muted); margin-bottom: 0; }
+
+.empty-state__action { margin-top: 18px; }
+
+/* Um prendedor vazio: o varal sem nada pendurado */
+.empty-state__peg {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 14px;
+    height: 30px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--peg) 50%, var(--peg-dark) 50%);
+    border-radius: 3px 3px 5px 5px;
+}
+
+.empty-state--error { border-color: var(--danger); }
