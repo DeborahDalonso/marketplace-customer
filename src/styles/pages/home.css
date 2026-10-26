@@ -1,0 +1,168 @@
+/* ==== Hero ==== */
+
+.hero {
+    padding-block: clamp(40px, 6vw, 80px) clamp(32px, 5vw, 64px);
+    overflow: hidden;
+}
+
+.hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+.hero__copy h1 {
+    max-width: 12ch;
+    margin-bottom: 16px;
+}
+
+.hero__subtitle {
+    max-width: 44ch;
+    margin-bottom: 28px;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+/* O varal: uma corda e as etiquetas penduradas por prendedores */
+.varal {
+    position: relative;
+    padding-top: 16px;
+}
+
+.varal__rope {
+    position: absolute;
+    top: 0;
+    left: -8%;
+    width: 116%;
+    height: 40px;
+}
+
+.varal__tags {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 30px 8px 24px;
+}
+
+.varal__slot {
+    flex: 1 1 0;
+    min-width: 0;
+    animation: card-sway 7s ease-in-out infinite;
+    transform-origin: 50% 0;
+}
+
+.varal__slot .product-card--hanging {
+    width: auto;
+    animation: none;
+}
+
+@media (max-width: 960px) {
+    .hero__inner { grid-template-columns: 1fr; gap: 32px; }
+    .varal__tags { overflow-x: auto; padding-inline: 4px; scroll-snap-type: x mandatory; }
+    .varal__slot { flex: 0 0 232px; scroll-snap-align: start; }
+    .varal__slot:last-child { margin-right: 4px; }
+}
+
+/* ==== Categorias ==== */
+
+.categories { padding-top: 0; }
+
+.categories__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.categories__item {
+    display: block;
+    padding: 20px 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.2s var(--ease);
+}
+
+.categories__item:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* ==== Como funciona ==== */
+
+.how {
+    background: var(--surface);
+    border-block: 1px solid var(--line);
+}
+
+.how__intro {
+    max-width: 52ch;
+    margin-bottom: 32px;
+    color: var(--text-muted);
+}
+
+.how__steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+}
+
+/* A corda passa por trás dos números para amarrar os três passos */
+.how__steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--rope) 0 8px, transparent 8px 14px);
+}
+
+.how__step { position: relative; }
+
+.how__step h3 { font-size: 1.15rem; margin-bottom: 6px; }
+
+.how__step p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+.how__number {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+@media (max-width: 720px) {
+    .how__steps { grid-template-columns: 1fr; gap: 24px; }
+    .how__steps::before {
+        top: 20px;
+        bottom: 20px;
+        left: 19px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: repeating-linear-gradient(180deg, var(--rope) 0 8px, transparent 8px 14px);
+    }
+    .how__step { padding-left: 56px; }
+    .how__number { position: absolute; left: 0; top: 0; margin: 0; }
+}

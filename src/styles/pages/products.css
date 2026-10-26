@@ -1,0 +1,24 @@
+.products { padding-block: 32px 48px; }
+
+.products__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.products__head h1 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 8px; }
+
+.products__count { font-size: 0.85rem; color: var(--text-muted); }
+
+.products__tools {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 12px 0 28px;
+}
+
+@media (min-width: 720px) {
+    .products__tools .search-bar { max-width: 420px; }
+}

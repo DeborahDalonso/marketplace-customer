@@ -1,0 +1,203 @@
+.orders {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-block: 32px 56px;
+}
+
+.orders h1 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 4px; }
+
+.orders__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.order-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.order-row--link {
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.15s;
+}
+
+.order-row--link:hover { border-color: var(--primary); color: var(--text); }
+
+.order-row__main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.order-row__id { font-weight: 600; }
+
+.order-row__meta { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ==== Detalhe ==== */
+
+.order-detail__back { align-self: flex-start; font-size: 0.9rem; }
+
+.order-detail__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.order-detail__head p { margin: 0; }
+
+.order-detail__status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    background: var(--surface-2);
+}
+
+.order-detail__status p { margin: 0; font-size: 0.95rem; }
+
+.order-detail__status--pending { background: var(--accent-soft); }
+.order-detail__status--confirmed { background: var(--info-soft); }
+.order-detail__status--paid { background: var(--success-soft); }
+.order-detail__status--cancelled { background: var(--danger-soft); }
+
+.order-detail__pulse {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-text);
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.6); opacity: 0.4; }
+}
+
+/* A saga como três prendedores na corda: os passados escurecem, o atual fica amarelo */
+.saga {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 8px 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: saga;
+}
+
+.saga::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: var(--line-strong);
+}
+
+.saga__step {
+    position: relative;
+    padding-top: 24px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.saga__step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--line-strong);
+}
+
+.saga__step--done { color: var(--text); }
+
+.saga__step--done::before { background: var(--primary); border-color: var(--primary); }
+
+.saga__step--current { font-weight: 600; }
+
+.saga__step--current::before { background: var(--accent); border-color: var(--accent); }
+
+.order-detail__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.order-detail__card {
+    margin: 0;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-l);
+}
+
+.order-detail__card h2 { font-size: 1.15rem; margin-bottom: 8px; }
+
+.order-detail__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.order-detail__items li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.95rem;
+}
+
+.order-detail__total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+.order-detail__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.order-detail__meta dt {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.order-detail__meta dd { margin: 2px 0 0; font-weight: 500; }
+
+@media (max-width: 720px) {
+    .order-row { flex-wrap: wrap; }
+    .order-row__main { flex-basis: 100%; }
+    .order-detail__grid { grid-template-columns: 1fr; }
+}
