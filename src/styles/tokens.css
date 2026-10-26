@@ -1,0 +1,119 @@
+/* Tokens da vitrine. Verde-garrafa de barraca de feira, amarelo de etiqueta de preço,
+   fundo frio para o papel das etiquetas não parecer creme de template. */
+:root {
+    color-scheme: light;
+
+    --bg: #f3f5f1;
+    --surface: #ffffff;
+    --surface-2: #e8ede6;
+    --text: #16221d;
+    --text-muted: #5b6b63;
+    --line: #cfd7cf;
+    --line-strong: #9aa89f;
+
+    --primary: #174a3c;
+    --primary-hover: #0f3a2e;
+    --primary-contrast: #f3f5f1;
+    --primary-soft: #d9e8e0;
+
+    --accent: #f2b705;
+    --accent-ink: #2a2000;
+    --accent-soft: #fbeab0;
+    --accent-text: #6b5200;
+
+    --danger: #b23a2a;
+    --danger-soft: #f6dcd7;
+    --success: #1f7a4d;
+    --success-soft: #d6efe0;
+    --info: #2a5b8f;
+    --info-soft: #d9e6f5;
+
+    --rope: #8a6a3f;
+    --peg: #c9a066;
+    --peg-dark: #a37e4a;
+
+    --font-display: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
+    --font-body: 'Public Sans', 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+
+    --radius-s: 6px;
+    --radius: 10px;
+    --radius-l: 16px;
+
+    --shadow: 0 1px 2px rgb(22 34 29 / 0.06), 0 8px 24px -12px rgb(22 34 29 / 0.25);
+    --shadow-lift: 0 2px 4px rgb(22 34 29 / 0.08), 0 18px 36px -14px rgb(22 34 29 / 0.35);
+
+    --container: 1120px;
+    --gutter: 16px;
+    --header-h: 64px;
+
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (min-width: 720px) {
+    :root {
+        --gutter: 32px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+        color-scheme: dark;
+        --bg: #0f1613;
+        --surface: #16201b;
+        --surface-2: #1f2b25;
+        --text: #e6ece7;
+        --text-muted: #94a49b;
+        --line: #2c3a33;
+        --line-strong: #4a5c53;
+        --primary: #6fcba3;
+        --primary-hover: #8bd8b6;
+        --primary-contrast: #0f1613;
+        --primary-soft: #1d3a2f;
+        --accent: #f2b705;
+        --accent-ink: #2a2000;
+        --accent-soft: #4a3a05;
+        --accent-text: #f2b705;
+        --danger: #f08a7a;
+        --danger-soft: #4a211b;
+        --success: #7fd3a4;
+        --success-soft: #1d3a2b;
+        --info: #8ab4e8;
+        --info-soft: #1f3147;
+        --rope: #b08a58;
+        --peg: #c9a066;
+        --peg-dark: #8d6a3c;
+        --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+        --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.5), 0 18px 36px -14px rgb(0 0 0 / 0.7);
+    }
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --bg: #0f1613;
+    --surface: #16201b;
+    --surface-2: #1f2b25;
+    --text: #e6ece7;
+    --text-muted: #94a49b;
+    --line: #2c3a33;
+    --line-strong: #4a5c53;
+    --primary: #6fcba3;
+    --primary-hover: #8bd8b6;
+    --primary-contrast: #0f1613;
+    --primary-soft: #1d3a2f;
+    --accent: #f2b705;
+    --accent-ink: #2a2000;
+    --accent-soft: #4a3a05;
+    --accent-text: #f2b705;
+    --danger: #f08a7a;
+    --danger-soft: #4a211b;
+    --success: #7fd3a4;
+    --success-soft: #1d3a2b;
+    --info: #8ab4e8;
+    --info-soft: #1f3147;
+    --rope: #b08a58;
+    --peg: #c9a066;
+    --peg-dark: #8d6a3c;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.5), 0 18px 36px -14px rgb(0 0 0 / 0.7);
+}
